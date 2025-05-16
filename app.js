@@ -257,6 +257,55 @@ game.gymStatus = function() {
       gymTally.incomplete +=1
     }
   })
-  console.log(gymTally)
+  //console.log(gymTally)
 }
 game.gymStatus()
+
+/*
+Exercise 14
+1. Add a `partyCount` method to `game` that counts the number of Pokémon in your party.
+
+This method should:
+  - Not accept any arguments.
+  - Count the number of Pokemon in the party.
+  - return the found number of Pokemon in the party.
+
+Solve Exercise 14 here:
+*/
+game.partyCount = function() {
+  return game.party.length
+}
+//console.log(game.partyCount())
+
+/*
+Exercise 15
+1. Now, complete gyms with a difficulty below 8. Reflect on how this is similar to 
+or different from the previous gym exercises.
+
+Is different beacuse the value is <8 last 2 exercise the value was <6, <3 whic will return more gyms completed 
+
+(change the value of `complete` in the qualifying objects from false to true).
+
+Solve Exercise 15 here:
+*/
+game.gyms.forEach(function(gym) {
+  if (gym.difficulty <8) {
+    gym.completed = true
+  }
+  
+})
+
+//console.log(game.gyms)
+
+/*
+Exercise 16
+1. Log the entire `game` object to the console. 
+Take a moment to review the changes you've made throughout the exercises.
+
+
+Solve Exercise 16 here:
+*/
+
+//console.log(game)
+console.dir(game, { depth: null })
+
