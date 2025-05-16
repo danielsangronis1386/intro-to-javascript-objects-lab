@@ -74,9 +74,70 @@ const threePokemon = waterPokemon.slice(0,3)
 
 //console.log (threePokemon)
 
-game.party.push(threePokemon)
+game.party.push(...threePokemon)
 
-console.log(game.party)
+//console.log(game.party)
+
+/*
+Exercise 6
+1. Set the `completed` property to true for gyms with a difficulty below 3.
+2. Think about how you'd loop through the `gyms` array to check and update the `completed` property.
+
+
+Solve Exercise 6 here:
+*/
+game.gyms.forEach(function(gym) {
+  if (gym.difficulty <3) {
+    gym.completed = true
+  }
+  
+})
+
+//console.log(game.gyms)
+
+/*
+Exercise 7
+1. Evolve the starter Pokémon you added to your party earlier. Each starter Pokémon evolves into a specific one.
+2. How would you replace the current starter Pokémon in your party with its evolved form?
+
+Hint: 
+  - Pokemon 1: Bulbasaur evolves into Pokemon 2: Ivysaur
+  - Pokemon 4: Charmander evolves into Pokemon 5: Charmeleon
+  - Pokemon 7: Squirtle evolves into Pokemon 8: Wartortle
+  - Pokemon 25: Pikachu evolves into Pokemon 26: Raichu
+
+More Hints: The existing starter Pokemon will be *replaced* in your party with the Pokemon
+it evolved into. When working with an array of objects, 
+the splice() array method is ideal for replacing one element with another. 
+
+
+Solve Exercise 7 here:
+*/
+const evolutions = {
+  'Bulbasaur': 'Ivysaur',
+  'Charmander': 'Charmeleon',
+  'Squirtle': 'Wartortle',
+  'Pikachu': 'Raichu'
+}
+
+const startername = 'Bulbasaur'
+const starterIndex = game.party.findIndex (poke => poke.name === startername)
+const evolved = pokemon.find(poke => poke.name === evolutions[startername])
+game.party.splice(starterIndex, 1, evolved)
+
+//console.log (game.party)
+
+/*
+Exercise 8
+1. Print the name of each Pokémon in your party.
+2. Consider using a loop or an array method to access each Pokémon's name.
+
+Solve Exercise 8 here:
+*/
+game.party.forEach(function(poke){
+  console.log(poke.name)
+})
+
 
 
 
