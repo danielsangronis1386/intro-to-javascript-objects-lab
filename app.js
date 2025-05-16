@@ -135,10 +135,128 @@ Exercise 8
 Solve Exercise 8 here:
 */
 game.party.forEach(function(poke){
-  console.log(poke.name)
+  //console.log(poke.name)
+})
+
+/*
+Exercise 9
+1. Can you print out all the starter Pokémon from the `pokemon` array?
+2. Think about how you can identify a starter Pokémon and then log their names.
+
+
+Solve Exercise 9 here:
+*/
+pokemon.forEach(function(pokemon){
+  if (pokemon.starter === true) {
+    //console.log(pokemon.name)
+  }
 })
 
 
+  /*
+Exercise 10
+Create a method called `catchPokemon` and add it to the `game` object. 
+You should not need to edit the original game object directly. This method should:
+  - Accept an object as a parameter called `pokemonObj`
+  - Add the `pokemonObj` to the `game.party` array.
+  - not return anything
+
+After writing this method, call it and pass in a Pokemon object of your choice from the `pokemon` data to catch it.
+
+Solve Exercise 10 here:
+*/
+game.catchPokemon = function(pokemonObj) {
+  game.party.push(pokemonObj)
+}
+
+const randomPokemon = pokemon [20]
+game.catchPokemon(randomPokemon)
+
+//console.log(randomPokemon)
+
+//console.log(game.party)
+
+/*
+Exercise 11
+1. Copy the `catchPokemon` method that you just wrote above, and paste it below. 
+Modify it so that it also decreases the number of pokeballs in your inventory each time you catch a Pokémon.
+2. How will you find and update the quantity of pokeballs in the `game.items` array?
+
+Tips:
+For this exercise, it's okay to have a negative number of pokeballs.
+After updating the method, call it and pass in a Pokemon object of your choice from the `pokemon` data to catch it.
+Also, log the `game.items` array to confirm that the pokeball quantity is being decremented.
+
+Solve Exercise 11 here:
+*/
 
 
+game.catchPokemon = function(pokemonObj) {
+  game.party.push(pokemonObj)
+  const pokeballItem = game.items.find (item => item.name === 'pokeball')
+if (pokeballItem){
+  pokeballItem.quantity -= 1
+}
+}
+
+game.catchPokemon (pokemon.find(p => p.number===30))
+
+//console.log(game.items)
+
+/*
+Exercise 12
+1. Similar to Exercise 6, now complete gyms with a difficulty below 6. How will you approach this?
+ (change the value of `complete` in the qualifying objects from false to true).
+
+Solve Exercise 12 here:
+*/
+game.gyms.forEach(function(gym) {
+  if (gym.difficulty <6) {
+    gym.completed = true
+  }
   
+})
+
+//console.log(game.gyms)
+
+/*
+Exercise 13
+1. Create a `gymStatus` method in `game` to tally completed and incomplete gyms.
+2. How will you iterate through the `gyms` array and update the tally? Remember to log the final tally.
+
+This method should:
+  - Not accept any arguments.
+  - Initially create a constant `gymTally`, which is an object that has two 
+    properties: `completed` and `incomplete`, both of which are initially set to 0.
+  - Iterate through the objects in the `game.gyms` array and update the 
+    properties on `gymTally` as follows: 
+    - `completed` should count how many gyms in the array have a value of `true` 
+      for their `completed` property. 
+    - `incomplete` should count how many gyms in the array have a value of 
+      `false` for their `completed` property.
+  - Log the value of `gymTally`.
+  - The method should not return anything.
+
+For example, if five gym objects have a value of `true` on their 
+`completed` property and three gym objects have a value of `false` on their 
+`completed` property, the logged value would be: `{ completed: 5, incomplete: 3 }`.
+
+Solve Exercise 13 here:
+*/
+
+game.gymStatus = function() {
+  const gymTally = {
+    completed:0,
+    incomplete:0
+  }
+  game.gyms.forEach(function(gym) {
+    if (gym.completed === true) {
+      gymTally.completed +=1
+
+    } else {
+      gymTally.incomplete +=1
+    }
+  })
+  console.log(gymTally)
+}
+game.gymStatus()
