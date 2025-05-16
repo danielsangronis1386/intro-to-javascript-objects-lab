@@ -35,7 +35,7 @@ Solve Exercise 3 here:
 */
 game.difficulty = 'medium'
 
-console.log(game.difficulty)
+//console.log(game.difficulty)
 
 /*
 Exercise 4
@@ -52,7 +52,31 @@ const starterPokemon = pokemon.find (poke => poke.starter === true)
 
 game.party.push(starterPokemon)
 
-console.log (game.party)
+//console.log (game.party)
+
+
+/*
+Exercise 5
+1. Choose three more Pokémon from the `pokemon` array and add them to your party.
+2. Consider different attributes like 'type' or 'HP' for your selection. Which array method will you use to add them?
+
+
+Solve Exercise 5 here:
+*/
+
+const waterPokemon = pokemon.filter(function(p){
+  return p.type === "water"
+})
+
+//console.log (waterPokemon)
+
+const threePokemon = waterPokemon.slice(0,3)
+
+//console.log (threePokemon)
+
+game.party.push(threePokemon)
+
+console.log(game.party)
 
 
 
